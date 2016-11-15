@@ -1,0 +1,94 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  width: 99%;
+  height: 99%;
+  text-align: center;
+}
+
+body:first-child{
+  height:99%;
+  width:auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fancybox-overlay{
+  background-color: #FFF !important;
+  overflow: hidden !important;
+
+  .fancybox-wrap {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px !important;
+    left: 0px !important;
+  }
+
+  .fancybox-skin, .fancybox-outer {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .fancybox-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+  }
+
+  .myClose {
+    float: left;
+    left: 5px !important;
+    top: calc(100% - 60px) !important;
+    background-image: none;
+    color: #D3D3D3;
+    &:hover{
+      color: #D3D3D3;
+      text-decoration: none;
+    }
+    img {
+      width: 40px;
+    }
+  }
+
+  .white {
+    color: #FFFFFF;
+    &:hover{
+      color: #FFFFFF;
+    }
+  }
+  .fancybox-nav span{
+    visibility: visible;
+  }
+  .fancybox-inner{
+    width: 100%!important;
+    height: 100%!important;
+    background-color: #000000;
+  }
+
+  .fancybox-prev span {
+    background-image: url('prev.png');
+    background-size: 100% 100%;
+    background-position-y: center;
+  }
+
+  .fancybox-next span {
+    background-image: url('next.png');
+    background-size: 100% 100%;
+    background-position-y: center;
+  }
+
+  .fancybox-type-image{
+    .fancybox-inner{
+      &:before {
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+      }
+    }
+  }
+}

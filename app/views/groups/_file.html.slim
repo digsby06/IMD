@@ -1,0 +1,11 @@
+- group.uploads.each do |upload|
+  .col-lg-4.col-md-4.col-xs-6.thumb
+
+    - if upload.upload_type.include? "video"
+      = render "video.html.slim", {upload: upload}
+
+    - elsif upload.upload_type.include? "pdf"
+      = render "pdf.html.slim", {upload: upload}
+
+    - else
+      = render "image.html.slim", {upload: upload}

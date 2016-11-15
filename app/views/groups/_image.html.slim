@@ -1,0 +1,5 @@
+a.fancybox.fancybox-imgs.thumbnail data-fancybox-group="gallery#{upload.group_id}" href="#{upload.file.url}" id="#{upload.group_id}"
+  = image_tag( 'photo.svg', { class: 'upload-type'})
+  div.img-thumbnail
+    = image_tag (upload.file.nil? ? "http://placehold.it/400x300" : upload.file), {class: "img-responsive", rel: ""}
+h2.image-name #{upload.name}

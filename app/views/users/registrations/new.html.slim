@@ -1,0 +1,20 @@
+h1 Sign up
+.row
+  .col-md-6.col-md-offset-3
+    = form_for :user, url: '/users' do |f|
+      - if @user
+          = render 'shared/error_messages'
+      .row
+        = f.text_field :username, :placeholder => "Username", :class => "form-control"
+
+      .row
+        = f.email_field :email, :placeholder => "Email", :class => "form-control"
+
+      .row
+        = f.password_field :password, :placeholder => "Password", :class => "form-control"
+
+      .row
+        = f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "form-control"
+
+      .row
+        = f.submit "Create my account", class: "btn btn-primary"

@@ -1,0 +1,44 @@
+.row
+  h1 Admin Users
+.container
+  .table-responsive
+    table#users.table.table-striped.table-bordered.table-hover cellspacing="0" width="100%"
+      thead
+        tr
+          th.hidden
+          th ID
+          th USERNAME
+          th EMAIL
+          th CREATED AT
+          th UPDATED AT
+          th PASSWORD
+          th SIGN IN COUNT
+          th CURRENT SIGN IN
+          th LAST SIGN IN
+          th ACTIONS
+          th.hidden
+      tbody
+        - @users.each do |user|
+          tr id="user-#{user.id}"
+            td.hidden
+            td
+              = user.id
+            td
+              = best_in_place user, :username
+            td
+              = best_in_place user, :email
+            td
+              = user.created_at
+            td
+              = user.updated_at
+            td
+              = user.encrypted_password[0..10].gsub(/\s\w+\s*$/,'...')
+            td
+              = user.sign_in_count
+            td
+              = user.current_sign_in_at
+            td
+              = user.last_sign_in_at
+            td
+              = link_to("DELETE", user, method: :delete, data: { confirm: 'Are you sure?' })
+            td.hidden

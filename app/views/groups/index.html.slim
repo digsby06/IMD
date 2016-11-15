@@ -1,0 +1,9 @@
+.container.inner
+  .row
+    #uploaded_files data-group-count="#{@groups_count}" data-last-updated="#{@last_updated[0].id } #{@last_updated[0].updated_at.strftime('%H:%M:%S')}"
+      = render partial: 'uploads.html.slim', locals: { groups: @groups }
+
+  #paginator.row.center
+    = render partial: 'pagination.html.slim', locals: { groups: @groups }
+
+  #ambient_content.hidden data-ambient-content-count="#{@ambient_content_count}"

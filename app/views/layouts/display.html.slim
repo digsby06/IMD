@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Interactive Media Display
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'groups', 'data-turbolinks-track' => true
+    = javascript_include_tag 'uploads', 'data-turbolinks-track' => true
+
+    = javascript_include_tag src="jquery-1.10.1.min.js", 'data-turbolinks-track' => true
+    = javascript_include_tag src="jquery.mousewheel-3.0.6.pack.js", 'data-turbolinks-track' => true
+    = javascript_include_tag src='jquery.touchSwipe.min.js', 'data-turbolinks-track' => true
+    = javascript_include_tag src="jquery.fancybox.js?v=2.1.5", 'data-turbolinks-track' => true
+    = stylesheet_link_tag  "jquery.fancybox.css?v=2.1.5", media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag src="fancybox", 'data-turbolinks-track' => true
+
+
+    = csrf_meta_tags
+  body#display.gradient
+    .container.middle
+      = yield
+
+  = javascript_include_tag 'swipe-pagination', 'data-turbolinks-track' => true

@@ -1,0 +1,5 @@
+a.fancybox-iframe.fancybox.thumbnail.fancybox-margin href="/pdfjs/web/viewer.html?file=#{upload.file.url}#zoom=page-fit" id="#{upload.group_id}"
+  = image_tag('pdf.svg', { class: 'upload-type'})
+  .img-thumbnail
+    = image_tag( upload.file.url(:thumb).to_s, { class: 'img-responsive pdf-img'} )
+h2.upload-name #{upload.name}

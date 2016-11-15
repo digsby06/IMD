@@ -1,0 +1,8 @@
+- if groups[0]
+  - groups.each do |group|
+    - if group.uploads.count > 1
+      = render "group.html.slim", {group: group}
+    - else
+      = render "file.html.slim", {group: group}
+- else
+  h1 There are no files to display yet. 

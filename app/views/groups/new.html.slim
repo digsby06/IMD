@@ -1,0 +1,56 @@
+.row
+  h1 Upload a file
+  .col-md-6.col-md-offset-3
+    = form_for :upload, url: '/groups', :html => {:multipart => true} do |f|
+      .row
+        = f.text_field :name, title: "", class: 'form-control', placeholder: 'Name'
+      .row
+        = f.file_field :files, title: "", class: 'form-control', multiple: true, accept: ".jpg, .jpeg, .gif, .png, .mp4, .m4v, .webm, .ogg, .pdf", required: true
+      .row
+        = f.submit "UPLOAD", :class => 'btn btn-lg btn-primary'
+.container-table
+  .table-responsive
+    table#uploads.table.table-striped.table-bordered.table-hover cellspacing="0" width="100%"
+      thead
+        tr
+          th.hidden
+          th ID
+          th NAME
+          th FILE
+          th USER ID
+          th UPLOAD TYPE
+          th CREATED AT
+          th UPDATED AT
+          th GROUP ID
+          th AMBIENT CONTENT
+          th ACTIONS
+          th.hidden
+      tbody
+        - @uploads.each do |upload|
+          tr id="#{upload.id}"
+            td.hidden
+            td
+              = upload.id
+            td
+              - if upload.name == ""
+                - upload.name = "-"
+              = best_in_place upload, :name
+            td
+              = best_in_place upload, :file
+            td
+              = best_in_place upload, :user_id
+            td
+              = best_in_place upload, :upload_type
+            td
+              = upload.created_at
+            td
+              = upload.updated_at
+            td
+              = best_in_place upload, :group_id
+            td
+              - escaped_false = raw("<i class='fa fa-square-o'></i>")
+              - escaped_true = raw("<i class='fa fa-check-square-o'></i>")
+              = best_in_place upload, :ambient_content, as: :checkbox, collection: {'false' => escaped_false, 'true' => escaped_true}
+            td
+              = link_to("DELETE", upload, method: :delete, data: { confirm: 'Are you sure to delete the Uploaded File?' })
+            td.hidden

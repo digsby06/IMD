@@ -1,0 +1,11 @@
+header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    - if current_user.nil?
+      = link_to "Interactive Media Display", '/', id: "logo"
+    - else
+      = link_to "Interactive Media Display", '/home', id: "logo"
+    nav
+      ul.nav.navbar-nav.navbar-right
+        li
+          - if !current_user.nil?
+            = link_to "Logout", '/users/sign_out', method: "delete"

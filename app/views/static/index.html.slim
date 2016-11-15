@@ -1,0 +1,18 @@
+.center.jumbotron
+  h1 Log-in!
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for :user, url: '/users/sign_in' do |f|
+        - if @user
+            = render 'shared/error_messages'
+        .row
+          = f.text_field :username, :placeholder => "User", :class => "form-control"
+
+        .row
+          = f.password_field :password, :placeholder => "Password", :class => "form-control"
+
+        .row
+          = f.submit "Login", class: "btn btn-primary"
+.row
+  = link_to "Sign up now!", '/users/sign_up', class: "btn btn-lg btn-primary"
+  = link_to "Forgot password?", new_user_password_path
