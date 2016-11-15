@@ -6,7 +6,7 @@ gem 'active_model_serializers'
 gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
-gem "fog", "~> 1.3.1"
+gem 'fog', '~> 1.38'
 gem "figaro"
 gem 'kaminari'
 gem 'api-pagination'
